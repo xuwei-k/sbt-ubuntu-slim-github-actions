@@ -1,0 +1,14 @@
+on:
+  push:
+jobs:
+  test:
+    runs-on: ubuntu-slim
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@v6
+    - uses: actions/setup-java@v5
+      with:
+        java-version: 21
+        distribution: temurin
+    - uses: sbt/setup-sbt@v1
+    - run: sbt "show name"
