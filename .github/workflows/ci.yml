@@ -11,4 +11,7 @@ jobs:
         java-version: 21
         distribution: temurin
     - uses: sbt/setup-sbt@v1
-    - run: sbt "show name"
+    - run: mkdir $HOME/tmp_xdg_dir
+    - run: |
+       export XDG_RUNTIME_DIR="$HOME/tmp_xdg_dir"
+       sbt "show name"
